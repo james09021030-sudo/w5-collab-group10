@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+
 <head>
   <meta charset="UTF-8">
   <title>我們組的 Chatbot</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="container">
@@ -21,6 +23,7 @@
     <div id="chat-box">
       <div class="message bot">
         嗨！這是我們組用 PR 協作做出來的 Chatbot 🎉
+        <span class="timestamp">🕐 剛剛</span>
       </div>
     </div>
 
@@ -45,19 +48,29 @@
       const userDiv = document.createElement('div');
       userDiv.className = 'message user';
       // 組員 A 任務：在這裡加入時間戳
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' });
       userDiv.textContent = text;
+      const userTime = document.createElement('span');
+      userTime.className = 'timestamp';
+      userTime.textContent = '🕐 ' + timeStr;
+      userDiv.appendChild(userTime);
       chatBox.appendChild(userDiv);
 
       const botDiv = document.createElement('div');
       botDiv.className = 'message bot';
       botDiv.textContent = `你說了「${text}」！`;
+      const botTime = document.createElement('span');
+      botTime.className = 'timestamp';
+      botTime.textContent = '🕐 ' + timeStr;
+      botDiv.appendChild(botTime);
       chatBox.appendChild(botDiv);
 
       input.value = '';
       chatBox.scrollTop = chatBox.scrollHeight;
     }
 
-    document.getElementById('user-input').addEventListener('keypress', function(e) {
+    document.getElementById('user-input').addEventListener('keypress', function (e) {
       if (e.key === 'Enter') sendMessage();
     });
 
@@ -67,4 +80,5 @@
   </script>
 
 </body>
+
 </html>

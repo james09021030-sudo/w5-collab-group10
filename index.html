@@ -18,6 +18,10 @@
     <!-- 組員 C 任務：在 header 下方加字數統計 p 元素 -->
     <!-- 組員 D 任務：在 header 加深色模式切換按鈕 -->
 
+    <div class="search-area">
+      <input id="search-input" type="text" placeholder="搜尋對話紀錄..." oninput="searchMessages()">
+    </div>
+
     <div id="chat-box">
       <div class="message bot">
         嗨！這是我們組用 PR 協作做出來的 Chatbot 🎉
@@ -64,6 +68,19 @@
     // 組員 B 任務：在這裡加 clearChat() 函數
     // 組員 C 任務：在這裡加字數統計更新邏輯
     // 組員 D 任務：在這裡加深色模式切換函數
+
+    function searchMessages() {
+      const searchText = document.getElementById('search-input').value.toLowerCase();
+      const messages = document.querySelectorAll('.message');
+      
+      messages.forEach(msg => {
+        if (msg.textContent.toLowerCase().includes(searchText)) {
+          msg.style.display = '';
+        } else {
+          msg.style.display = 'none';
+        }
+      });
+    }
   </script>
 
 </body>

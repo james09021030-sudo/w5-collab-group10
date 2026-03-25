@@ -92,6 +92,23 @@ header .subtitle { font-size: 13px; opacity: 0.85; margin-top: 4px; }
 
 .input-area button:hover { opacity: 0.85; }
 
+.search-area {
+  padding: 10px 16px;
+  background: #fdfdfd;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.search-area input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-area input:focus { border-color: #4f8ef7; }
+
 /* ── 組員 D 任務：在這裡加 body.dark 深色模式樣式 ── */
 
 /* ── 組員 E 任務：在這裡加 footer 樣式 ── */
